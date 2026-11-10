@@ -14,7 +14,7 @@
 
 /* ====== CHANGE THIS URL TO YOUR HOSTED IMAGE ====== */
 .controller.custom {
-  background: url("BACKGROUND_IMAGE_URL") no-repeat center center;
+  background: url("https://assets.grok.com/users/5486dd13-d4f4-47a4-8358-4976ee434d17/generated/f65ccc4b-c3a8-4d8b-a4c0-2d02b4c50378/image.png") no-repeat center center;
   background-size: contain;
   width: 780px;
   height: 750px;
