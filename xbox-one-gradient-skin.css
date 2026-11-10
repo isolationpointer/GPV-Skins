@@ -1,32 +1,266 @@
-/* =====================================================
-   Xbox One Gradient Skin for Gamepad Viewer
-   Soft cyber / neon gradient style
-   ===================================================== */
+/*
+  Xbox One Gradient Skin for Gamepad Viewer
+  ==========================================
+  How to use:
+  1. Upload this file to a GitHub Gist (name it something.css)
+  2. Click "Raw" and copy the raw URL
+  3. Use this link format:
 
-/* Main controller body - gradient background */
-.controller.xbox {
-  background-image: none !important;
-  background: linear-gradient(135deg, #0f0c29 0%, #302b63 40%, #24243e 70%, #0f0c29 100%) !important;
-  border-radius: 18px;
-  box-shadow: 0 0 25px rgba(118, 75, 162, 0.45);
+     https://gamepadviewer.com/?p=1&css=YOUR_RAW_GIST_URL
+
+     or
+
+     https://gpadviewer.com/?p=1&css=YOUR_RAW_GIST_URL
+
+  This is a FULL custom skin (uses .controller.custom)
+*/
+
+/* Base controller with gradient */
+.controller.custom {
+  background: linear-gradient(145deg, #0f0c29 0%, #302b63 40%, #24243e 70%, #0f0c29 100%);
+  width: 750px;
+  height: 530px;
+  border-radius: 28px;
+  box-shadow: 0 0 30px rgba(118, 75, 162, 0.5);
+  position: relative;
 }
 
-/* Make face buttons (A/B/X/Y) pop a bit more */
-.controller.xbox .button {
-  filter: brightness(1.15) saturate(1.2);
+/* Disconnected state */
+.custom.disconnected {
+  background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 100%);
+  opacity: 0.6;
+}
+.custom.disconnected div {
+  display: none;
 }
 
-/* Subtle glow on sticks when pressed */
-.controller.xbox .stick.pressed {
-  filter: drop-shadow(0 0 8px rgba(0, 255, 200, 0.6));
+/* Triggers */
+.custom .triggers {
+  position: absolute;
+  width: 620px;
+  height: 80px;
+  left: 65px;
+  top: 0;
+}
+.custom .trigger {
+  width: 110px;
+  height: 70px;
+  background: linear-gradient(180deg, #5a4a8a, #3a2a5a);
+  border-radius: 12px 12px 4px 4px;
+  opacity: 0.35;
+  transition: opacity 0.1s;
+}
+.custom .trigger.left {
+  float: left;
+}
+.custom .trigger.right {
+  float: right;
+}
+.custom .trigger[style*="opacity"] {
+  /* when pressed the site sets inline opacity */
 }
 
-/* Slightly brighter triggers */
-.controller.xbox .trigger {
-  filter: brightness(1.1);
+/* Bumpers */
+.custom .bumpers {
+  position: absolute;
+  width: 620px;
+  height: 30px;
+  left: 65px;
+  top: 85px;
+}
+.custom .bumper {
+  width: 140px;
+  height: 28px;
+  background: linear-gradient(180deg, #7a6aaa, #4a3a7a);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.08s;
+}
+.custom .bumper.pressed {
+  opacity: 1;
+}
+.custom .bumper.left {
+  float: left;
+}
+.custom .bumper.right {
+  float: right;
 }
 
-/* Optional: slightly brighter bumpers */
-.controller.xbox .bumper {
-  filter: brightness(1.1);
+/* Face buttons (A B X Y) */
+.custom .abxy {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: 160px;
+  left: 520px;
+}
+.custom .button {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #2a2a3a;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+  transition: transform 0.05s, background 0.05s;
+}
+.custom .button.pressed {
+  transform: scale(0.92);
+  background: #4a4a6a;
+}
+.custom .a {
+  background: #107c10;
+  bottom: 0;
+  left: 64px;
+}
+.custom .a.pressed { background: #1aff1a; }
+.custom .b {
+  background: #e81123;
+  top: 64px;
+  right: 0;
+}
+.custom .b.pressed { background: #ff5555; }
+.custom .x {
+  background: #0078d7;
+  top: 64px;
+  left: 0;
+}
+.custom .x.pressed { background: #55aaff; }
+.custom .y {
+  background: #f7e100;
+  top: 0;
+  left: 64px;
+}
+.custom .y.pressed { background: #ffff66; }
+
+/* Sticks */
+.custom .sticks {
+  position: absolute;
+  width: 360px;
+  height: 100px;
+  top: 300px;
+  left: 195px;
+}
+.custom .stick {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #5a5a7a, #2a2a3a 70%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.custom .stick.pressed {
+  background: radial-gradient(circle at 35% 35%, #7a7aaa, #3a3a5a 70%);
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.5);
+}
+.custom .stick.left {
+  top: 0;
+  left: 0;
+}
+.custom .stick.right {
+  top: 0;
+  left: calc(100% - 90px);
+}
+
+/* D-Pad */
+.custom .dpad {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 175px;
+  left: 95px;
+}
+.custom .face {
+  position: absolute;
+  background: #2a2a3a;
+  opacity: 0;
+  transition: opacity 0.05s;
+}
+.custom .face.pressed {
+  opacity: 1;
+  background: #5a5a8a;
+}
+.custom .face.up,
+.custom .face.down {
+  width: 36px;
+  height: 42px;
+  left: 42px;
+}
+.custom .face.up {
+  top: 0;
+  border-radius: 6px 6px 2px 2px;
+}
+.custom .face.down {
+  bottom: 0;
+  border-radius: 2px 2px 6px 6px;
+}
+.custom .face.left,
+.custom .face.right {
+  width: 42px;
+  height: 36px;
+  top: 42px;
+}
+.custom .face.left {
+  left: 0;
+  border-radius: 6px 2px 2px 6px;
+}
+.custom .face.right {
+  right: 0;
+  border-radius: 2px 6px 6px 2px;
+}
+
+/* View / Menu buttons */
+.custom .arrows {
+  position: absolute;
+  width: 140px;
+  height: 30px;
+  top: 195px;
+  left: 305px;
+}
+.custom .back,
+.custom .start {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #3a3a5a;
+  opacity: 0;
+  transition: opacity 0.08s;
+}
+.custom .back.pressed,
+.custom .start.pressed {
+  opacity: 1;
+  background: #7a7aaa;
+}
+.custom .back {
+  float: left;
+}
+.custom .start {
+  float: right;
+}
+
+/* Xbox button (meta) */
+.custom .meta {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 354px;
+  top: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #107c10, #0a4a0a);
+  box-shadow: 0 0 12px rgba(16, 124, 16, 0.6);
+}
+.custom .meta.pressed {
+  background: radial-gradient(circle, #1aff1a, #107c10);
+  box-shadow: 0 0 18px rgba(26, 255, 26, 0.8);
+}
+
+/* Player LEDs (quadrant) - simple */
+.custom .quadrant {
+  position: absolute;
+  width: 40px;
+  height: 8px;
+  left: 355px;
+  top: 310px;
+  background: #107c10;
+  border-radius: 4px;
+  opacity: 0.7;
 }
