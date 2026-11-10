@@ -1,0 +1,32 @@
+/* =====================================================
+   Xbox One Gradient Skin for Gamepad Viewer
+   Soft cyber / neon gradient style
+   ===================================================== */
+
+/* Main controller body - gradient background */
+.controller.xbox {
+  background-image: none !important;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 40%, #24243e 70%, #0f0c29 100%) !important;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(118, 75, 162, 0.45);
+}
+
+/* Make face buttons (A/B/X/Y) pop a bit more */
+.controller.xbox .button {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+/* Subtle glow on sticks when pressed */
+.controller.xbox .stick.pressed {
+  filter: drop-shadow(0 0 8px rgba(0, 255, 200, 0.6));
+}
+
+/* Slightly brighter triggers */
+.controller.xbox .trigger {
+  filter: brightness(1.1);
+}
+
+/* Optional: slightly brighter bumpers */
+.controller.xbox .bumper {
+  filter: brightness(1.1);
+}
