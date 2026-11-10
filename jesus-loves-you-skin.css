@@ -1,0 +1,233 @@
+/*
+  ============================================
+  "Jesus Loves You" Knitted Xbox Controller Skin
+  for Gamepad Viewer
+  ============================================
+
+  HOW TO USE:
+  1. Upload the image "jesus-loves-you-controller.png" to Imgur or GitHub
+  2. Get the direct image URL (must end in .png)
+  3. Replace the BACKGROUND_IMAGE_URL below with your image URL
+  4. Upload THIS CSS file to a GitHub Gist (name it something.css)
+  5. Use: https://gamepadviewer.com/?p=1&css=YOUR_RAW_GIST_URL
+*/
+
+/* ====== CHANGE THIS URL TO YOUR HOSTED IMAGE ====== */
+.controller.custom {
+  background: url("BACKGROUND_IMAGE_URL") no-repeat center center;
+  background-size: contain;
+  width: 780px;
+  height: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Center the controller on the page */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+.controller.custom.disconnected {
+  opacity: 0.55;
+  filter: grayscale(0.4);
+}
+.custom.disconnected > div {
+  display: none !important;
+}
+
+/* ========== TRIGGERS ========== */
+.custom .triggers {
+  position: absolute;
+  width: 620px;
+  height: 90px;
+  left: 80px;
+  top: 5px;
+}
+.custom .trigger {
+  width: 120px;
+  height: 85px;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.08s;
+}
+.custom .trigger.left  { float: left; }
+.custom .trigger.right { float: right; }
+
+/* ========== BUMPERS ========== */
+.custom .bumpers {
+  position: absolute;
+  width: 620px;
+  height: 35px;
+  left: 80px;
+  top: 95px;
+}
+.custom .bumper {
+  width: 145px;
+  height: 32px;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.08s;
+}
+.custom .bumper.pressed {
+  opacity: 0.35;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+}
+.custom .bumper.left  { float: left; }
+.custom .bumper.right { float: right; }
+
+/* ========== FACE BUTTONS (A B X Y) ========== */
+.custom .abxy {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  top: 235px;
+  left: 535px;
+}
+.custom .button {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  transition: transform 0.06s, box-shadow 0.06s;
+}
+.custom .button.pressed {
+  transform: scale(0.9);
+  box-shadow: 0 0 18px 6px rgba(255, 255, 255, 0.55);
+}
+
+/* Positions matched to the knitted controller */
+.custom .a {                 /* Green A - bottom */
+  bottom: 8px;
+  left: 62px;
+}
+.custom .b {                 /* Red B - right */
+  top: 62px;
+  right: 8px;
+}
+.custom .x {                 /* Blue X - left */
+  top: 62px;
+  left: 8px;
+}
+.custom .y {                 /* Yellow Y - top */
+  top: 8px;
+  left: 62px;
+}
+
+/* ========== ANALOG STICKS ========== */
+.custom .sticks {
+  position: absolute;
+  width: 370px;
+  height: 110px;
+  top: 355px;
+  left: 205px;
+}
+.custom .stick {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: transparent;
+  transition: box-shadow 0.08s;
+}
+.custom .stick.pressed {
+  box-shadow: 0 0 22px 8px rgba(255, 255, 255, 0.45);
+}
+.custom .stick.left {
+  top: 0;
+  left: 0;
+}
+.custom .stick.right {
+  top: 0;
+  left: calc(100% - 95px);
+}
+
+/* ========== D-PAD ========== */
+.custom .dpad {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  top: 255px;
+  left: 115px;
+}
+.custom .face {
+  position: absolute;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.06s, box-shadow 0.06s;
+}
+.custom .face.pressed {
+  opacity: 1;
+  box-shadow: 0 0 14px 5px rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.custom .face.up,
+.custom .face.down {
+  width: 38px;
+  height: 42px;
+  left: 43px;
+}
+.custom .face.up    { top: 0; }
+.custom .face.down  { bottom: 0; }
+.custom .face.left,
+.custom .face.right {
+  width: 42px;
+  height: 38px;
+  top: 43px;
+}
+.custom .face.left  { left: 0; }
+.custom .face.right { right: 0; }
+
+/* ========== VIEW / MENU ========== */
+.custom .arrows {
+  position: absolute;
+  width: 145px;
+  height: 35px;
+  top: 245px;
+  left: 318px;
+}
+.custom .back,
+.custom .start {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.08s, box-shadow 0.08s;
+}
+.custom .back.pressed,
+.custom .start.pressed {
+  opacity: 1;
+  box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.5);
+}
+.custom .back  { float: left; }
+.custom .start { float: right; }
+
+/* ========== XBOX GUIDE BUTTON ========== */
+.custom .meta {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 366px;
+  top: 295px;
+  border-radius: 50%;
+  background: transparent;
+  transition: box-shadow 0.1s;
+}
+.custom .meta.pressed {
+  box-shadow: 0 0 24px 10px rgba(16, 124, 16, 0.7);
+}
+
+/* ========== PLAYER LED ========== */
+.custom .quadrant {
+  display: none; /* hide the default quadrant since the art already has the look */
+}
